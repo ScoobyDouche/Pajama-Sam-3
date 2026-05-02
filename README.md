@@ -62,9 +62,10 @@ rm -rf ~/.local/share/games/pajama-sam-3
 
 ## Uninstall
 
-Remove the game data, the launcher, and the menu entry, and delete the `[pajama3]` section from ScummVM's config (easiest done from the ScummVM GUI: select the game, click "Remove Game"). To do it all from the terminal:
+Remove the game data, the launcher, and the menu entry, and delete the `[pajama3]` section from ScummVM's config (easiest done from the ScummVM GUI: select the game, click "Remove Game"). To do it all from the terminal — the `chmod` step is needed because files copied off the CD inherit its read-only mode, which blocks `rm -rf`:
 
 ```bash
+chmod -R u+w ~/.local/share/games/pajama-sam-3
 rm -rf ~/.local/share/games/pajama-sam-3
 rm -f ~/.local/bin/pajama-sam-3
 rm -f ~/.local/share/applications/pajama-sam-3.desktop

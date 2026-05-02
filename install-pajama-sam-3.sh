@@ -131,6 +131,8 @@ if ! compgen -G "$INSTALL_DIR/PAJAMA3*" >/dev/null; then
   cp "$HE2" "$INSTALL_DIR/PAJAMA3.HE2"
   cp "$HE4" "$INSTALL_DIR/PAJAMA3.HE4"
   [[ -n "$HE_A" ]] && cp "$HE_A" "$INSTALL_DIR/PAJAMA3.(A)"
+  # CD files are read-only; clear that so saves work and uninstall is clean.
+  chmod -R u+rwX "$INSTALL_DIR"
   ok "Game files copied."
 fi
 
